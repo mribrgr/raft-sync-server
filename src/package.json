@@ -1,0 +1,27 @@
+{
+  "name": "raft-sync",
+  "version": "1.0.0",
+  "description": "sync raft game fils over git",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mribrgr/raft-sync-server.git"
+  },
+  "keywords": [
+    "raft",
+    "sync",
+    "multiplayer"
+  ],
+  "author": "dick-mounten-he gift-of-god-hunter",
+  "license": "WTFPL",
+  "bugs": {
+    "url": "https://github.com/mribrgr/raft-sync-server/issues"
+  },
+  "homepage": "https://github.com/mribrgr/raft-sync-server#readme",
+  "dependencies": {
+    "git-client": "^1.8.3"
+  }
+}
