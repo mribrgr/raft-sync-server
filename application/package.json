@@ -22,6 +22,8 @@
   },
   "homepage": "https://github.com/mribrgr/raft-sync-server#readme",
   "dependencies": {
-    "git-client": "^1.8.3"
+    "git-client": "^1.8.3",
+    "tar": "^6.1.0",
+    "tmp": "^0.2.1"
   }
 }
