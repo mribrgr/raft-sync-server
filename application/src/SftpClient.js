@@ -1,5 +1,6 @@
 const Client = require('ssh2-sftp-client');
 const fs = require('fs');
+const { promisify } = require('util');
 
 class SftpClient {
     constructor(host, port, username, password) {
@@ -21,34 +22,34 @@ class SftpClient {
     /**
      * @return null on error
      */
-    upload(filename) {
+    async upload(filename) {
         let locale = fs.createReadStream(filename);
         let remote = `/sftp/${filename}`;
+        let list = undefined;
 
-        this.sftp.connect({
+        let result = this.sftp.connect({
             host: this.host,
             port: this.port,
             username: this.username,
             password: this.password
-        })
-        .then(() => {
+        }).then(() => {
             return this.sftp.put(locale, remote);
-        })
-        .then(ret => {
-            console.log(ret);
-        })
-        .then(() => {
-            this.sftp.end();
-        })
-        .catch(err => {
-            return null;
+        }).then(data => {
+            list = data;
+            return this.sftp.end();
+        }).then(async data => {
+            return list;
+        }).catch(err => {
+            return err;
         });
+
+        return await result.then(data => {return data;});
     }
 
-    list() {
+    async list() {
         let list = undefined;
 
-        this.sftp.connect({
+        let result = this.sftp.connect({
             host: this.host,
             port: this.port,
             username: this.username,
@@ -58,39 +59,40 @@ class SftpClient {
         }).then(data => {
             list = data;
             return this.sftp.end();
-        }).then(data => {
-            console.log(list, 'erstes Ergebnis');
+        }).then(async data => {
             return list;
         }).catch(err => {
-            return null;
+            return err;
         });
+
+        return await result.then(data => {return data;});
     }
 
     /**
      * @return null on error
      */
-    download(filename) {
+    async download(filename) {
         let remote = `/sftp/${filename}`;
         let locale = fs.createWriteStream(filename);
+        let list = undefined;
 
-        this.sftp.connect({
+        let result = this.sftp.connect({
             host: this.host,
             port: this.port,
             username: this.username,
             password: this.password
-        })
-        .then(() => {
+        }).then(() => {
             return this.sftp.get(remote, locale);
-        })
-        .then(ret => {
-            console.log(ret);
-        })
-        .then(() => {
-            this.sftp.end();
-        })
-        .catch(err => {
+        }).then(data => {
+            list = data;
+            return this.sftp.end();
+        }).then(async data => {
+            return list;
+        }).catch(err => {
             return null;
         });
+
+        return await result.then(data => {return data;});
     }
 }
 
