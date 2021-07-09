@@ -17,3 +17,7 @@
 
 ## Set Steam wrapper
 https://www.reddit.com/r/linux_gaming/comments/969vm4/running_a_shell_script_when_steam_games_launch/
+
+
+## NPM ftp
+https://www.npmjs.com/package/ftp
