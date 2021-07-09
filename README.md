@@ -10,7 +10,10 @@
 * else:
     * put
     * Compresses World folder
-* Upload to FTP Server
+    * Upload to FTP Server
+
+* wait(untilGameIsStopped):
+    * same as above
 
 ## Set Steam wrapper
 https://www.reddit.com/r/linux_gaming/comments/969vm4/running_a_shell_script_when_steam_games_launch/
