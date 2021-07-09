@@ -8,6 +8,7 @@
     * get
     * Decompress World folder
 * else:
+    * put
     * Compresses World folder
 * Upload to FTP Server
 
