@@ -1,6 +1,5 @@
 const Client = require('ssh2-sftp-client');
 const fs = require('fs');
-const { promisify } = require('util');
 
 class SftpClient {
     constructor(host, port, username, password) {
