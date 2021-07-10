@@ -4,7 +4,7 @@
   "description": "sync raft game fils over git",
   "main": "src/index.js",
   "scripts": {
-    "test": "node tests/SftpClientHelper.js"
+    "test": "node test/SftpClientHelper.js"
   },
   "repository": {
     "type": "git",
